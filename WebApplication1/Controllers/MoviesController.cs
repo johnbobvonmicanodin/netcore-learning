@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Repositories.Interfaces;
 using Repositories.Repositories;
+using Services.Interfaces;
 
 namespace WebApplication1.Controllers
 {
@@ -14,9 +15,9 @@ namespace WebApplication1.Controllers
     [ApiController]
     public class MoviesController : ControllerBase
     {
-        private readonly IMovieRepository _movieService;
+        private readonly IMovieService _movieService;
 
-        public MoviesController(IMovieRepository movieService)
+        public MoviesController(IMovieService movieService)
         {
             this._movieService = movieService;
         }
@@ -35,13 +36,13 @@ namespace WebApplication1.Controllers
             return _movieService.DeleteMovie(id);
         }
 
-        [HttpPut("/add")]
+        [HttpPost("add")]
         public Movie AddMovie(Movie m)
         {
             return _movieService.AddMovie(m);
         }
 
-        [HttpPost("/update")]
+        [HttpPut("/update")]
         public Movie UpdateMovie(Guid id, Movie m)
         {
             return _movieService.Update(id, m);

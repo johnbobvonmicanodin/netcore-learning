@@ -42,6 +42,11 @@ namespace Repositories.Repositories
             return this._context.Movies.ToList();
         }
 
+        public Movie GetByTitle(string title)
+        {
+            return this._context.Movies.SingleOrDefault(i => i.Title == title);
+        }
+
         public Movie Update(Guid id, Movie m)
         {
             Movie up = this._context.Movies.First(i => i.id == id);

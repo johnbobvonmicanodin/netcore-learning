@@ -3,10 +3,11 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Repositories.Interfaces
+namespace Services.Interfaces
 {
-    public interface IMovieRepository
+    public interface IMovieService
     {
+      
         List<Movie> GetAllMovies();
 
         Movie AddMovie(Movie m);
@@ -18,3 +19,4 @@ namespace Repositories.Interfaces
         Movie GetByTitle(string title);
     }
 }
+

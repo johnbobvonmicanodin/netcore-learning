@@ -6,7 +6,7 @@ using Repositories.Interfaces;
 
 namespace Repositories.Repositories
 {
-    public class StaticMovieRepository : IMovieRepository
+    /**public class StaticMovieRepository : IMovieRepository
     {
         public List<Movie> GetAllMovies()
         {
@@ -16,5 +16,5 @@ namespace Repositories.Repositories
                 new Movie(){Title = "Non", Description = "Oui"}
             };        
         }
-    }
+    }*/
 }
