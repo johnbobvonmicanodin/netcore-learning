@@ -9,7 +9,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ClassLibrary", "ClassLibrar
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Repositories", "Repositories\Repositories.csproj", "{D12F9FD4-BCB1-46D0-87EE-CC09196FAC77}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Services", "Services\Services.csproj", "{8A097885-BDD0-48CD-BDCF-A9229C6BE10A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Services", "Services\Services.csproj", "{8A097885-BDD0-48CD-BDCF-A9229C6BE10A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Services.Tests", "Service.Tests\Services.Tests.csproj", "{284D8FA5-76F4-4D27-ADFC-4DA29CA33400}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{8A097885-BDD0-48CD-BDCF-A9229C6BE10A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8A097885-BDD0-48CD-BDCF-A9229C6BE10A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8A097885-BDD0-48CD-BDCF-A9229C6BE10A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{284D8FA5-76F4-4D27-ADFC-4DA29CA33400}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{284D8FA5-76F4-4D27-ADFC-4DA29CA33400}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{284D8FA5-76F4-4D27-ADFC-4DA29CA33400}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{284D8FA5-76F4-4D27-ADFC-4DA29CA33400}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

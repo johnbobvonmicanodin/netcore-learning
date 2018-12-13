@@ -9,16 +9,17 @@ namespace Repositories.Repositories
 {
     public class MovieRepository : IMovieRepository
     {
-        private readonly MovieDbContext _context;
+        private readonly KlaydSoulDbContext _context;
 
-        public MovieRepository(MovieDbContext context)
+        public MovieRepository(KlaydSoulDbContext context)
         {
             this._context = context;
         }
 
         public Movie AddMovie(Movie m)
         {
-            this._context.Movies.Add(m);
+            //this._context.Movies.Add(m);
+            this._context.Attach(m);
             this._context.SaveChanges();
             return m;
         }

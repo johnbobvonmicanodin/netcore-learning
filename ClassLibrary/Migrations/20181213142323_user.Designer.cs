@@ -9,8 +9,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ClassLibrary.Migrations
 {
     [DbContext(typeof(KlaydSoulDbContext))]
-    [Migration("20181016142657_movie")]
-    partial class movie
+    [Migration("20181213142323_user")]
+    partial class user
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -86,6 +86,26 @@ namespace ClassLibrary.Migrations
                     b.HasKey("id");
 
                     b.ToTable("Person");
+                });
+
+            modelBuilder.Entity("ClassLibrary.Models.User", b =>
+                {
+                    b.Property<Guid>("id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("Email");
+
+                    b.Property<string>("FirstName");
+
+                    b.Property<string>("Name");
+
+                    b.Property<string>("Password");
+
+                    b.Property<int>("isSeller");
+
+                    b.HasKey("id");
+
+                    b.ToTable("Users");
                 });
 
             modelBuilder.Entity("ClassLibrary.Models.Comment", b =>

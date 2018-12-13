@@ -5,16 +5,18 @@ using System.Text;
 
 namespace ClassLibrary.Models
 {
-    public class MovieDbContext : DbContext
+    public class KlaydSoulDbContext : DbContext
     {
         public virtual DbSet<Movie> Movies { get; set; }
 
-        public MovieDbContext()
+        public virtual DbSet<User> Users { get; set; }
+
+        public KlaydSoulDbContext()
         {
 
         }
 
-        public MovieDbContext(DbContextOptions<MovieDbContext> options) : base(options)
+        public KlaydSoulDbContext(DbContextOptions<KlaydSoulDbContext> options) : base(options)
         {
 
         }
@@ -44,7 +46,7 @@ namespace ClassLibrary.Models
                 .HasMany(x => x.PlayedMovies)
                 .WithOne(x => x.Actor)
                 ;
-
+        
             modelBuilder.Entity<MovieActor>().HasKey(x => new { x.ActorId, x.MovieId });
         }
     }

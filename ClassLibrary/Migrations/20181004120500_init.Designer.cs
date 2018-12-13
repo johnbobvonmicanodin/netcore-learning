@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace ClassLibrary.Migrations
 {
-    [DbContext(typeof(MovieDbContext))]
+    [DbContext(typeof(KlaydSoulDbContext))]
     [Migration("20181004120500_init")]
     partial class init
     {

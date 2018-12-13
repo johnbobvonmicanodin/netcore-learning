@@ -7,7 +7,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace ClassLibrary.Migrations
 {
-    [DbContext(typeof(MovieDbContext))]
+    [DbContext(typeof(KlaydSoulDbContext))]
     partial class MovieDbContextModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)
@@ -84,6 +84,26 @@ namespace ClassLibrary.Migrations
                     b.HasKey("id");
 
                     b.ToTable("Person");
+                });
+
+            modelBuilder.Entity("ClassLibrary.Models.User", b =>
+                {
+                    b.Property<Guid>("id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("Email");
+
+                    b.Property<string>("FirstName");
+
+                    b.Property<string>("Name");
+
+                    b.Property<string>("Password");
+
+                    b.Property<int>("isSeller");
+
+                    b.HasKey("id");
+
+                    b.ToTable("Users");
                 });
 
             modelBuilder.Entity("ClassLibrary.Models.Comment", b =>
