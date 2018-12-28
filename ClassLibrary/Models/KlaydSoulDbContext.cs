@@ -11,6 +11,14 @@ namespace ClassLibrary.Models
 
         public virtual DbSet<User> Users { get; set; }
 
+        public virtual DbSet<Product> Products { get; set; }
+
+        public virtual DbSet<Inventory> Inventories { get; set; }
+        
+        public virtual DbSet<Movement> Movements { get; set; }
+
+        public virtual DbSet<Basket> Baskets { get; set; }
+
         public KlaydSoulDbContext()
         {
 
