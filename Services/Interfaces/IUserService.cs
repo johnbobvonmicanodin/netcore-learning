@@ -5,7 +5,7 @@ using ClassLibrary.Models;
 
 namespace Repositories.Interfaces
 {
-    public interface IUserRepository
+    public interface IUserService
     {
         User AddUser(User m);
 
