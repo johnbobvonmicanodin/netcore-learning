@@ -7,8 +7,12 @@ namespace Repositories.Interfaces
 {
     public interface IUserService
     {
-        User AddUser(User m);
+        User AddUser(User u);
+
+        User GetUser(String email, string password);
 
         List<User> GetAllUsers();
+
+        bool DeleteUser(Guid id);
     }
 }

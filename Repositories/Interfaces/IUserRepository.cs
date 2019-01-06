@@ -9,6 +9,11 @@ namespace Repositories.Interfaces
     {
         User AddUser(User m);
 
+        User GetUser(String mail, String password);
+
         List<User> GetAllUsers();
+
+        bool DeleteUser(Guid id);
+
     }
 }

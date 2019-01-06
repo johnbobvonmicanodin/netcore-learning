@@ -22,6 +22,25 @@ namespace WebApplication1.Controllers
             this._userService = userService;
         }
 
-      
+        [HttpGet("get")]
+        public User GetUser(String mail, String password)
+        {
+
+            return _userService.GetUser(mail, password);
+        }
+
+        [HttpPost("add")]
+        public User AddUser(User u)
+        {
+            return _userService.AddUser(u);
+        }
+
+        [HttpDelete("/delete")]
+        public bool DeleteUser(Guid id)
+        {
+            return _userService.DeleteUser(id);
+        }
+
+
     }
 }

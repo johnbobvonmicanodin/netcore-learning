@@ -16,14 +16,25 @@ namespace Services.Services
             this._userRepository = ur;
         }
 
-        public User AddUser(User m)
+        public User AddUser(User u)
         {
-            throw new NotImplementedException();
+            //check si deja present etc
+            return _userRepository.AddUser(u);
+        }
+
+        public User GetUser(String email, string password)
+        {
+            return _userRepository.GetUser(email, password);
         }
 
         public List<User> GetAllUsers()
         {
-            throw new NotImplementedException();
+            return _userRepository.GetAllUsers();
+        }
+
+        public bool DeleteUser(Guid id)
+        { 
+            return _userRepository.DeleteUser(id);
         }
     }
 }
