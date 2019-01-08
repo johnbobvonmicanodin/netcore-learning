@@ -43,6 +43,10 @@ namespace WebApplication1
 
             services.AddScoped<IMovieService, MovieService>();
 
+            services.AddScoped<IUserRepository, UserRepository>();
+
+            services.AddScoped<IUserService, UserService>();
+
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             SetupAuth(services);
         }

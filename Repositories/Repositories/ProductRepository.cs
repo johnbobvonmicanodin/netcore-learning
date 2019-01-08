@@ -16,19 +16,31 @@ namespace Repositories.Repositories
             this._context = context;
         }
 
-        public Basket AddProduct(Product p)
+        public Product AddProduct(Product p)
         {
-            throw new NotImplementedException();
+            this._context.Attach(p);
+            this._context.SaveChanges();
+
+            return p;
         }
 
-        public void DeleteProduct(Product p)
+        public bool DeleteProduct(Product p)
         {
-            throw new NotImplementedException();
+            if (this._context.Products.FirstOrDefault(i => i.Id == p.Id) != null)
+            {
+                this._context.Users.Remove(this._context.Users.FirstOrDefault(i => i.Id == p.Id));
+                this._context.SaveChanges();
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
 
         public List<Product> GetAllProduct()
         {
-            throw new NotImplementedException();
+            return this._context.Products.ToList();
         }
     }
 }

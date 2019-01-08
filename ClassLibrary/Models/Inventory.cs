@@ -6,8 +6,8 @@ namespace ClassLibrary.Models
 {
     public class Inventory
     {
-        public Guid id { get; set; }
-        public Guid Product_Name { get; set; }
+        public Guid Id { get; set; }
+        public Product ProductStock { get; set; }
         public int Stock { get; set; }
         public DateTime Date { get; set; }
        

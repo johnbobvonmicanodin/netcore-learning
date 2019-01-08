@@ -13,7 +13,7 @@ namespace Repositories.Interfaces
 
         List<Inventory> GetAllLastInventory();
 
-        void DeleteInventory(Inventory);
+        void DeleteInventory(Inventory i);
 
     }
 }

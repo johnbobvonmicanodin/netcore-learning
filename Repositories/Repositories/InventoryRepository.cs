@@ -18,17 +18,20 @@ namespace Repositories.Repositories
 
         public Inventory AddInventory(Inventory i)
         {
-            throw new NotImplementedException();
+            this._context.Attach(i);
+            this._context.SaveChanges();
+
+            return i;
         }
 
-        public void DeleteInventory(Inventory )
+        public void DeleteInventory(Inventory i)
         {
             throw new NotImplementedException();
         }
 
         public List<Inventory> GetAllLastInventory()
         {
-            throw new NotImplementedException();
+            return this._context.Inventories.ToList();
         }
 
         public Inventory GetLastInventory(Product p)

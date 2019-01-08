@@ -35,7 +35,7 @@ namespace WebApplication1
             var claims = new[]
             {
                 new Claim(JwtRegisteredClaimNames.Sub, user.Email),
-                new Claim(JwtRegisteredClaimNames.Jti, user.id.ToString()),
+                new Claim(JwtRegisteredClaimNames.Jti, user.Id.ToString()),
             };
 
             var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_config["Jwt:Key"]));

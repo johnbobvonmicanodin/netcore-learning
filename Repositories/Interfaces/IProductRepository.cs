@@ -7,11 +7,11 @@ namespace Repositories.Interfaces
 {
     public interface IProductRepository
     {
-        Basket AddProduct(Product p);
+        Product AddProduct(Product p);
 
         List<Product> GetAllProduct();
 
-        void DeleteProduct(Product p);
+        bool DeleteProduct(Product p);
 
     }
 }

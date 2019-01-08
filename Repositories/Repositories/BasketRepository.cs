@@ -18,7 +18,10 @@ namespace Repositories.Repositories
 
         public Basket AddItem(Basket b)
         {
-            throw new NotImplementedException();
+            this._context.Attach(b);
+            this._context.SaveChanges();
+
+            return b;
         }
 
         public void DeleteAllBasket(User u)
@@ -33,7 +36,7 @@ namespace Repositories.Repositories
 
         public List<Basket> GetAllBasketUser(User u)
         {
-            throw new NotImplementedException();
+            return this._context.Baskets.ToList();
         }
     }
 }

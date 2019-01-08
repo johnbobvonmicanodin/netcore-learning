@@ -21,7 +21,7 @@ namespace Services.Services
             throw new NotImplementedException();
         }
 
-        public void DeleteInventory(Inventory )
+        public void DeleteInventory(Inventory i)
         {
             throw new NotImplementedException();
         }

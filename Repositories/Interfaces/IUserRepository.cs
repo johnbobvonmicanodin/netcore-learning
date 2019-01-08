@@ -9,7 +9,9 @@ namespace Repositories.Interfaces
     {
         User AddUser(User m);
 
-        User GetUser(String mail, String password);
+        User UserExist(User u);
+
+        User GetUser(String mail);
 
         List<User> GetAllUsers();
 

@@ -6,8 +6,8 @@ namespace ClassLibrary.Models
 {
     public class Basket
     {
-        public Guid id { get; set; }
-        public Guid User_id { get; set; }
+        public Guid Id { get; set; }
+        public User BasketOwner { get; set; }
         public string Product_name { get; set; }
         public int Number { get; set; }
        

@@ -16,28 +16,27 @@ namespace Repositories.Repositories
             this._context = context;
         }
 
-        public User GetUser(String mail, String password)
+        public User GetUser(String mail)
         {
             User u = this._context.Users.SingleOrDefault(i => i.Email == mail);
 
-            if(u.Password == password){
-                return u;
-            }
-            else
-            {
-                return null;
-            }
-           
+            return u;
         }
 
         public User AddUser(User u)
+        {
+            this._context.Attach(u);
+            this._context.SaveChanges();
+
+            return u;
+        }
+
+        public User UserExist(User u)
         {
             User alreadyExist = this._context.Users.SingleOrDefault(i => i.Email == u.Email);
 
             if (alreadyExist == null)
             {
-                this._context.Attach(u);
-                this._context.SaveChanges();
                 return u;
             }
             else
@@ -45,6 +44,7 @@ namespace Repositories.Repositories
                 return null;
             }
         }
+        
 
         public List<User> GetAllUsers()
         {
@@ -53,9 +53,9 @@ namespace Repositories.Repositories
 
         public bool DeleteUser(Guid id)
         {
-            if (this._context.Users.FirstOrDefault(i => i.id == id) != null)
+            if (this._context.Users.FirstOrDefault(i => i.Id == id) != null)
             {
-                this._context.Users.Remove(this._context.Users.FirstOrDefault(i => i.id == id));
+                this._context.Users.Remove(this._context.Users.FirstOrDefault(i => i.Id == id));
                 this._context.SaveChanges();
                 return true;
             }

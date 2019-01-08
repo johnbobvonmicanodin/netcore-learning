@@ -22,11 +22,10 @@ namespace WebApplication1.Controllers
             this._userService = userService;
         }
 
-        [HttpGet("get")]
-        public User GetUser(String mail, String password)
+        [HttpPost("login")]
+        public User LogUser(Login g)
         {
-
-            return _userService.GetUser(mail, password);
+            return _userService.GetUser(g.mail, g.password);
         }
 
         [HttpPost("add")]
@@ -41,6 +40,10 @@ namespace WebApplication1.Controllers
             return _userService.DeleteUser(id);
         }
 
-
+        public class Login
+        {
+            public string mail;
+            public string password;
+        }
     }
 }
