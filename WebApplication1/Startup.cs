@@ -37,7 +37,7 @@ namespace WebApplication1
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 
-            services.AddDbContext<KlaydSoulDbContext>(options => options.UseMySql(Configuration.GetConnectionString("Movie_db")));
+            services.AddDbContext<KlaydSoulDbContext>(options => options.UseMySql(Configuration.GetConnectionString("KlaydSoul_db")));
 
             services.AddScoped<IMovieRepository, MovieRepository>();
 

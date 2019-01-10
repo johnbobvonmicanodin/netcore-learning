@@ -33,7 +33,7 @@ namespace ClassLibrary.Models
         {
             if (!optionsBuilder.IsConfigured)
             {
-                optionsBuilder.UseMySql("server=localhost;port=3306;database=core;uid=root;password=root");
+                optionsBuilder.UseMySql("server=localhost;port=3306;database=core;uid=root;password=root");      
             }
         }
 
