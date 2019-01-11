@@ -47,6 +47,19 @@ namespace WebApplication1
 
             services.AddScoped<IUserService, UserService>();
 
+            services.AddCors(options =>
+            {
+                options.AddPolicy("AllowAllOrigins",
+                builder =>
+                {
+                    builder.AllowAnyOrigin();
+                    builder.AllowAnyHeader();
+                    builder.AllowCredentials();
+                    builder.AllowAnyMethod();
+
+                });
+            });
+
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             SetupAuth(services);
         }
@@ -63,6 +76,7 @@ namespace WebApplication1
                 app.UseHsts();
             }
 
+            app.UseCors();
             app.UseHttpsRedirection();
             app.UseAuthentication();
             app.UseMvc();
