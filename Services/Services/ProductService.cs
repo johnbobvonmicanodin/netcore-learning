@@ -16,19 +16,19 @@ namespace Services.Services
             this._productRepository = pr;
         }
 
-        public Basket AddProduct(Product p)
+        public Product AddProduct(Product p)
         {
-            throw new NotImplementedException();
+            return this._productRepository.AddProduct(p);
         }
 
         public void DeleteProduct(Product p)
         {
-            throw new NotImplementedException();
+            this._productRepository.DeleteProduct(p);
         }
 
         public List<Product> GetAllProduct()
         {
-            throw new NotImplementedException();
+            return this._productRepository.GetAllProduct();
         }
     }
 }

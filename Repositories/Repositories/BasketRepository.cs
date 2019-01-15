@@ -29,9 +29,18 @@ namespace Repositories.Repositories
             throw new NotImplementedException();
         }
 
-        public void DeleteBasket(Basket b)
+        public Boolean DeleteBasket(Basket b)
         {
-            throw new NotImplementedException();
+            if (this._context.Baskets.FirstOrDefault(i => i.Id == b.Id) != null)
+            {
+                this._context.Baskets.Remove(this._context.Baskets.FirstOrDefault(i => i.Id == b.Id));
+                this._context.SaveChanges();
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
 
         public List<Basket> GetAllBasketUser(User u)

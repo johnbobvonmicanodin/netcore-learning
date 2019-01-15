@@ -16,19 +16,19 @@ namespace Services.Services
             this._movementRepository = mv;
         }
 
-        public Basket AddMovement(Movement m)
+        public Movement AddMovement(Movement m)
         {
-            throw new NotImplementedException();
+            return this._movementRepository.AddMovement(m);
         }
 
-        public List<Basket> GetAllMovementofOneProduct(Product p)
+        public List<Movement> GetAllMovementofOneProduct(Product p)
         {
-            throw new NotImplementedException();
+            return this._movementRepository.GetAllMovementofOneProduct(p);
         }
 
         public void ResetAllMovement(Product p)
         {
-            throw new NotImplementedException();
+            return this._movementRepository.ResetAllMovement(p);
         }
     }
 }

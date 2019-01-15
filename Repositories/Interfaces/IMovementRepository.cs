@@ -7,9 +7,9 @@ namespace Repositories.Interfaces
 {
     public interface IMovementRepository
     {
-        Basket AddMovement(Movement m);
+        Movement AddMovement(Movement m);
 
-        List<Basket> GetAllMovementofOneProduct(Product p);
+        List<Movement> GetAllMovementofOneProduct(Product p);
 
         void ResetAllMovement(Product p);
 

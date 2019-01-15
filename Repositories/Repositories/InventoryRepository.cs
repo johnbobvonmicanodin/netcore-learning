@@ -24,9 +24,18 @@ namespace Repositories.Repositories
             return i;
         }
 
-        public void DeleteInventory(Inventory i)
+        public Boolean DeleteInventory(Inventory inv)
         {
-            throw new NotImplementedException();
+            if (this._context.Inventories.FirstOrDefault(i => i.Id == inv.Id) != null)
+            {
+                this._context.Inventories.Remove(this._context.Inventories.FirstOrDefault(i => i.Id == inv.Id));
+                this._context.SaveChanges();
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
 
         public List<Inventory> GetAllLastInventory()

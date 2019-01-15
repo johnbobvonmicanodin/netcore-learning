@@ -18,22 +18,22 @@ namespace Services.Services
 
         public Inventory AddInventory(Inventory i)
         {
-            throw new NotImplementedException();
+            return this._inventoryRepository.AddInventory(i);
         }
 
         public void DeleteInventory(Inventory i)
         {
-            throw new NotImplementedException();
+            this._inventoryRepository.DeleteInventory(i);
         }
 
         public List<Inventory> GetAllLastInventory()
         {
-            throw new NotImplementedException();
+            return this._inventoryRepository.GetAllLastInventory();
         }
 
         public Inventory GetLastInventory(Product p)
         {
-            throw new NotImplementedException();
+            return this._inventoryRepository.GetLastInventory(p);
         }
     }
 }

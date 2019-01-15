@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using ClassLibrary.Models;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Repositories.Interfaces;
@@ -11,7 +12,7 @@ using Services.Interfaces;
 
 namespace WebApplication1.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/[controller]"), EnableCors("AllowAllOrigins")]
     [ApiController]
     public class ProductsController : ControllerBase
     {
@@ -20,6 +21,19 @@ namespace WebApplication1.Controllers
         public ProductsController(IProductService productService)
         {
             this._productService = productService;
+        }
+
+        [HttpGet("get")]
+        public List<Product> GetAllProducts()
+        {
+            return this._productService.GetAllProduct();
+        }
+
+
+        [HttpPost("add")]
+        public Product AddProduct(Product p)
+        {
+            return this._productService.AddProduct(p);
         }
 
     }

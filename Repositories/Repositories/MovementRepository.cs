@@ -16,12 +16,12 @@ namespace Repositories.Repositories
             this._context = context;
         }
 
-        public Basket AddMovement(Movement m)
+        public Movement AddMovement(Movement m)
         {
             throw new NotImplementedException();
         }
 
-        public List<Basket> GetAllMovementofOneProduct(Product p)
+        public List<Movement> GetAllMovementofOneProduct(Product p)
         {
             throw new NotImplementedException();
         }

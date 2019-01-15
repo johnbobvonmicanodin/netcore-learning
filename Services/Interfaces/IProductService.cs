@@ -7,7 +7,7 @@ namespace Repositories.Interfaces
 {
     public interface IProductService
     {
-        Basket AddProduct(Product p);
+        Product AddProduct(Product p);
 
         List<Product> GetAllProduct();
 

@@ -18,22 +18,22 @@ namespace Services.Services
 
         public Basket AddItem(Basket b)
         {
-            throw new NotImplementedException();
+            return this._basketRepository.AddItem(b);
         }
 
         public void DeleteAllBasket(User u)
         {
-            throw new NotImplementedException();
+            this._basketRepository.DeleteAllBasket(u);
         }
 
         public void DeleteBasket(Basket b)
         {
-            throw new NotImplementedException();
+            this._basketRepository.DeleteBasket(b);
         }
 
         public List<Basket> GetAllBasketUser(User u)
         {
-            throw new NotImplementedException();
+            return this._basketRepository.GetAllBasketUser(u);
         }
     }
 }
