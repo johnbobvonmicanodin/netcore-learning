@@ -64,5 +64,13 @@ namespace Repositories.Repositories
                 return false;
             }
         }
+
+        public User UpdateUser(User update)
+        {
+            this._context.Users.Update(update);
+            this._context.SaveChanges();
+
+            return update;
+        }
     }
 }

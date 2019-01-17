@@ -36,5 +36,11 @@ namespace WebApplication1.Controllers
             return this._productService.AddProduct(p);
         }
 
+        [HttpDelete("delete")]
+        public void DeleteProduct(Product p)
+        {
+            this._productService.DeleteProduct(p);
+        }
+
     }
 }

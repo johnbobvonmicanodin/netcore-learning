@@ -28,7 +28,7 @@ namespace Services.Services
 
         public void ResetAllMovement(Product p)
         {
-            return this._movementRepository.ResetAllMovement(p);
+            this._movementRepository.ResetAllMovement(p);
         }
     }
 }

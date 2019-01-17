@@ -17,5 +17,7 @@ namespace Repositories.Interfaces
 
         bool DeleteUser(Guid id);
 
+        User UpdateUser(User update);
+
     }
 }

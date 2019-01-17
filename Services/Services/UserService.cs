@@ -68,6 +68,24 @@ namespace Services.Services
             return _userRepository.DeleteUser(id);
         }
 
+        public User UpdateUser(User before, User after)
+        {
+            if (_userRepository.UserExist(after) != null)
+            {
+                after.Password = Sha256_hash(after.Password);
+                before.Password = after.Password;
+                before.Name = after.Name;
+                before.FirstName = after.FirstName;
+                before.Email = after.Email;
+            
+                return _userRepository.UpdateUser(before);
+            }
+            else
+            {
+                return null;
+            }
+        }
+
         public static string Sha256_hash(string value)
         {
             StringBuilder Sb = new StringBuilder();

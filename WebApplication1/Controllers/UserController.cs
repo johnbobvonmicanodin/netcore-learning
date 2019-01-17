@@ -35,16 +35,28 @@ namespace WebApplication1.Controllers
             return _userService.AddUser(u);
         }
 
-        [HttpDelete("/delete")]
+        [HttpDelete("delete")]
         public bool DeleteUser(Guid id)
         {
             return _userService.DeleteUser(id);
+        }
+
+        [HttpPost("update")]
+        public User UpdateUser(ModifyUser u)
+        {
+            return _userService.UpdateUser(u.before, u.after);
         }
 
         public class Login
         {
             public string mail;
             public string password;
+        }
+
+        public class ModifyUser
+        {
+            public User before;
+            public User after;
         }
     }
 }

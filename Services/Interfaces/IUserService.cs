@@ -14,5 +14,7 @@ namespace Repositories.Interfaces
         List<User> GetAllUsers();
 
         bool DeleteUser(Guid id);
+
+        User UpdateUser(User before, User after);
     }
 }

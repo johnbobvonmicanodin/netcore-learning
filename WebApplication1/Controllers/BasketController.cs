@@ -36,5 +36,17 @@ namespace WebApplication1.Controllers
             return this._basketService.AddItem(b);
         }
 
+        [HttpDelete("delete")]
+        public void DeleteBasket(Basket b)
+        {
+            this._basketService.DeleteBasket(b);
+        }
+
+        [HttpDelete("deleteall")]
+        public void DeleteAllBasket(User u)
+        {
+            this._basketService.DeleteAllBasket(u);
+        }
+
     }
 }

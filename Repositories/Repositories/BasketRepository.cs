@@ -26,7 +26,8 @@ namespace Repositories.Repositories
 
         public void DeleteAllBasket(User u)
         {
-            throw new NotImplementedException();
+            this._context.Baskets.RemoveRange(this._context.Baskets.Where(b => b.BasketOwner == u));
+            this._context.SaveChanges();
         }
 
         public Boolean DeleteBasket(Basket b)
@@ -45,7 +46,7 @@ namespace Repositories.Repositories
 
         public List<Basket> GetAllBasketUser(User u)
         {
-            return this._context.Baskets.ToList();
+            return this._context.Baskets.Where(b => b.BasketOwner == u).ToList();
         }
     }
 }
