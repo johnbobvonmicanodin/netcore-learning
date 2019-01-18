@@ -40,6 +40,8 @@ namespace Repositories.Repositories
 
         public List<Inventory> GetAllLastInventory()
         {
+            //this._context.Inventories.Where()
+
             return this._context.Inventories.ToList();
         }
 

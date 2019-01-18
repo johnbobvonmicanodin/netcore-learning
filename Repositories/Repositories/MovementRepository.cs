@@ -18,17 +18,21 @@ namespace Repositories.Repositories
 
         public Movement AddMovement(Movement m)
         {
-            throw new NotImplementedException();
+            this._context.Attach(m);
+            this._context.SaveChanges();
+
+            return m;
         }
 
         public List<Movement> GetAllMovementofOneProduct(Product p)
         {
-            throw new NotImplementedException();
+            return _context.Movements.Where(m => m.ProductMoved == p).ToList();
         }
 
         public void ResetAllMovement(Product p)
         {
-            throw new NotImplementedException();
+            this._context.Movements.RemoveRange(this._context.Movements.Where(m => m.ProductMoved == p));
+            this._context.SaveChanges();
         }
     }
 }
