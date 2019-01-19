@@ -40,14 +40,23 @@ namespace Repositories.Repositories
 
         public List<Inventory> GetAllLastInventory()
         {
-            //this._context.Inventories.Where()
+            List<Inventory> allLastInventory = new List<Inventory>();
 
-            return this._context.Inventories.ToList();
+            ProductRepository productRepository = new ProductRepository(this._context);
+
+            List<Product> allProduct = productRepository.GetAllProduct();
+
+            foreach(Product p in allProduct)
+            {
+                allLastInventory.Add(this._context.Inventories.FirstOrDefault(i => i.ProductStock == p));
+            }
+
+            return allLastInventory;
         }
 
         public Inventory GetLastInventory(Product p)
         {
-            throw new NotImplementedException();
+            return this._context.Inventories.FirstOrDefault(i => i.ProductStock == p);
         }
     }
 }

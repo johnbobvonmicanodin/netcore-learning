@@ -22,5 +22,30 @@ namespace WebApplication1.Controllers
         {
             this._inventoryService = inventoryService;
         }
+
+
+        [HttpPost("add")]
+        public Inventory AddInventory(Inventory i)
+        {
+            return this._inventoryService.AddInventory(i);
+        }
+
+        [HttpDelete("delete")]
+        public void DeleteInventory(Inventory i)
+        {
+            this._inventoryService.DeleteInventory(i);
+        }
+
+        [HttpGet("getalllast")]
+        public List<Inventory> GetAllLastInventory()
+        {
+            return this._inventoryService.GetAllLastInventory();
+        }
+
+        [HttpPost("getlast")]
+        public Inventory GetLastInventory(Product p)
+        {
+            return this._inventoryService.GetLastInventory(p);
+        }
     }
 }

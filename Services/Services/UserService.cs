@@ -19,13 +19,21 @@ namespace Services.Services
 
         public User AddUser(User u)
         {
-            u.Password = Sha256_hash(u.Password);
 
-            User exist = _userRepository.UserExist(u);
-            
-            if(exist != null)
+            if (u.Password != null && u.Email != null)
             {
-                return _userRepository.AddUser(u);
+                u.Password = Sha256_hash(u.Password);
+
+                User exist = _userRepository.UserExist(u);
+
+                if (exist != null)
+                {
+                    return _userRepository.AddUser(u);
+                }
+                else
+                {
+                    return null;
+                }
             }
             else
             {

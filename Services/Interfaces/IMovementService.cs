@@ -11,6 +11,8 @@ namespace Repositories.Interfaces
 
         List<Movement> GetAllMovementofOneProduct(Product p);
 
+        List<Movement> GetAllMovementOneProductAfterInventory(Product p);
+
         void ResetAllMovement(Product p);
 
     }

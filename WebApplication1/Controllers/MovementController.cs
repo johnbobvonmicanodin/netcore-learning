@@ -22,5 +22,23 @@ namespace WebApplication1.Controllers
         {
             this._movementService = movementService;
         }
+
+        [HttpPost("add")]
+        public Movement AddMovement(Movement m)
+        {
+            return this._movementService.AddMovement(m);
+        }
+
+        [HttpPost("getalloneproduct")]
+        public List<Movement> GetAllOfOneProduct(Product p)
+        {
+            return this._movementService.GetAllMovementofOneProduct(p);
+        }
+
+        [HttpPost("getalloneproductafterlastinventory")]
+        public List<Movement> GetAllOfOneProductAfterInventory(Product p)
+        {
+            return this._movementService.GetAllMovementOneProductAfterInventory(p);
+        }
     }
 }

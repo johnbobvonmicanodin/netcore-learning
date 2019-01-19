@@ -33,14 +33,22 @@ namespace Repositories.Repositories
 
         public User UserExist(User u)
         {
-            User alreadyExist = this._context.Users.SingleOrDefault(i => i.Email == u.Email);
+            try
+            {
+                User alreadyExist = this._context.Users.SingleOrDefault(i => i.Email == u.Email);
 
-            if (alreadyExist == null)
-            {
-                return u;
+                if (alreadyExist == null)
+                {
+                    return u;
+                }
+                else
+                {
+                    return null;
+                }
             }
-            else
+            catch (Exception e)
             {
+                Console.WriteLine(e);
                 return null;
             }
         }
