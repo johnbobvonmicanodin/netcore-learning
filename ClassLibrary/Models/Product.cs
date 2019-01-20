@@ -10,7 +10,9 @@ namespace ClassLibrary.Models
         public string Name { get; set; }
         public string Description { get; set; }
         public string Picture { get; set; }
-        public double Price { get; set; }
+        public int Delivery_time { get; set; }
+        public double TVA { get; set; }
+        public double PriceHT { get; set; }
         public string Stock_place { get; set; }
 
         public Product()

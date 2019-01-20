@@ -10,6 +10,7 @@ namespace ClassLibrary.Models
         public Product ProductMoved { get; set; }
         public User MovementOrigin { get; set; }
         public string Type_of_movement { get; set; }
+        public string Statut { get; set; }
         public int Number { get; set; }
         public double Value { get; set; }
         public DateTime Date { get; set; }

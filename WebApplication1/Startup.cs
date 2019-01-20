@@ -62,6 +62,7 @@ namespace WebApplication1
 
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             SetupAuth(services);
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -75,6 +76,8 @@ namespace WebApplication1
             {
                 app.UseHsts();
             }
+
+            app.UseStaticFiles();
 
             app.UseCors();
             app.UseHttpsRedirection();

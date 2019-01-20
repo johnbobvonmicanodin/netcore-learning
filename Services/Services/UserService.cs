@@ -50,7 +50,7 @@ namespace Services.Services
 
                 User u = _userRepository.GetUser(email);
 
-                if (u.Password == password)
+                if (u != null && u.Password == password)
                 {
                     return u;
                 }
