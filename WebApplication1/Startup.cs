@@ -25,9 +25,10 @@ namespace WebApplication1
 {
     public class Startup
     {
+       
         public Startup(IConfiguration configuration)
         {
-            Configuration = configuration;
+            Configuration = configuration;        
         }
 
         public IConfiguration Configuration { get; }
@@ -47,6 +48,22 @@ namespace WebApplication1
 
             services.AddScoped<IUserService, UserService>();
 
+            services.AddScoped<IProductRepository, ProductRepository>();
+
+            services.AddScoped<IProductService, ProductService>();
+
+            services.AddScoped<IMovementRepository, MovementRepository>();
+
+            services.AddScoped<IMovementService, MovementService>();
+
+            services.AddScoped<IBasketRepository, BasketRepository>();
+
+            services.AddScoped<IBasketService, BasketService>();
+
+            services.AddScoped<IInventoryRepository, InventoryRepository>();
+
+            services.AddScoped<IInventoryService, InventoryService>();
+
             services.AddCors(options =>
             {
                 options.AddPolicy("AllowAllOrigins",
@@ -56,7 +73,7 @@ namespace WebApplication1
                     builder.AllowAnyHeader();
                     builder.AllowCredentials();
                     builder.AllowAnyMethod();
-
+                  
                 });
             });
 
