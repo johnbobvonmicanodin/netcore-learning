@@ -13,5 +13,6 @@ namespace Repositories.Interfaces
 
         void DeleteProduct(Product p);
 
+        Product UpdateProduct(Product p);
     }
 }

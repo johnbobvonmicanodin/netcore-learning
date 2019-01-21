@@ -43,6 +43,12 @@ namespace WebApplication1.Controllers
             return this._productService.AddProduct(p);
         }
 
+        [HttpPost("update")]
+        public Product UpdateProduct(Product p)
+        {
+            return this._productService.UpdateProduct(p);
+        }
+
         [HttpPost("addimage")]
         public Product AddImage()
         {

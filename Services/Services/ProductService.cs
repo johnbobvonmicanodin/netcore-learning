@@ -21,6 +21,11 @@ namespace Services.Services
             return this._productRepository.AddProduct(p);
         }
 
+        public Product UpdateProduct(Product p)
+        {
+            return this._productRepository.UpdateProduct(p);
+        }
+
         public void DeleteProduct(Product p)
         {
             this._productRepository.DeleteProduct(p);

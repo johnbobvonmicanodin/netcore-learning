@@ -24,6 +24,14 @@ namespace Repositories.Repositories
             return p;
         }
 
+        public Product UpdateProduct(Product p)
+        {
+            this._context.Products.Update(p);
+            this._context.SaveChanges();
+
+            return p;
+        }
+
         public bool DeleteProduct(Product p)
         {
             if (this._context.Products.FirstOrDefault(i => i.Id == p.Id) != null)
