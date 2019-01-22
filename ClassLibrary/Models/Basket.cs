@@ -8,7 +8,7 @@ namespace ClassLibrary.Models
     {
         public Guid Id { get; set; }
         public User BasketOwner { get; set; }
-        public string Product_name { get; set; }
+        public Product Product_choose { get; set; }
         public int Number { get; set; }
        
         public Basket()

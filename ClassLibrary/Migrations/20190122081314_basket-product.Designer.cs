@@ -3,14 +3,16 @@ using System;
 using ClassLibrary.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace ClassLibrary.Migrations
 {
     [DbContext(typeof(KlaydSoulDbContext))]
-    partial class MovieDbContextModelSnapshot : ModelSnapshot
+    [Migration("20190122081314_basket-product")]
+    partial class basketproduct
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
