@@ -3,7 +3,7 @@ using Repositories.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
+using Microsoft.EntityFrameworkCore;
 
 namespace Repositories.Repositories
 {
@@ -30,7 +30,7 @@ namespace Repositories.Repositories
             this._context.SaveChanges();
         }
 
-        public Boolean DeleteBasket(Basket b)
+        public bool DeleteBasket(Basket b)
         {
             if (this._context.Baskets.FirstOrDefault(i => i.Id == b.Id) != null)
             {
@@ -46,7 +46,7 @@ namespace Repositories.Repositories
 
         public List<Basket> GetAllBasketUser(User u)
         {
-            return this._context.Baskets.Where(b => b.BasketOwner == u).ToList();
+            return this._context.Baskets.Include(b => b.BasketOwner).Include(b => b.Product_choose).Where(b => b.BasketOwner == u).ToList();
         }
     }
 }

@@ -4,6 +4,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Microsoft.EntityFrameworkCore;
+
 
 namespace Repositories.Repositories
 {
@@ -26,7 +28,7 @@ namespace Repositories.Repositories
 
         public List<Movement> GetAllMovementofOneProduct(Product p)
         {
-            return _context.Movements.Where(m => m.ProductMoved == p).ToList();
+            return _context.Movements.Include(m => m.MovementOrigin).Include(m => m.ProductMoved).Where(m => m.ProductMoved == p).ToList();
         }
 
         public List<Movement> GetAllMovementOneProductAfterInventory(Product p)
@@ -34,7 +36,7 @@ namespace Repositories.Repositories
             InventoryRepository _inventoryRepo = new InventoryRepository(this._context);
             Inventory i = _inventoryRepo.GetLastInventory(p);
 
-            return this._context.Movements.Where(m => m.ProductMoved == p && m.Date >= i.Date).ToList();
+            return this._context.Movements.Include(m => m.MovementOrigin).Include(m => m.ProductMoved).Where(m => m.ProductMoved == p && m.Date >= i.Date).ToList();
         }
 
         public void ResetAllMovement(Product p)

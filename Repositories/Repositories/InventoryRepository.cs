@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Microsoft.EntityFrameworkCore;
 
 namespace Repositories.Repositories
 {
@@ -48,7 +49,7 @@ namespace Repositories.Repositories
 
             foreach(Product p in allProduct)
             {
-                allLastInventory.Add(this._context.Inventories.FirstOrDefault(i => i.ProductStock == p));
+                allLastInventory.Add(this._context.Inventories.Include(i => i.ProductStock).FirstOrDefault(i => i.ProductStock == p));
             }
 
             return allLastInventory;
@@ -56,7 +57,7 @@ namespace Repositories.Repositories
 
         public Inventory GetLastInventory(Product p)
         {
-            return this._context.Inventories.FirstOrDefault(i => i.ProductStock == p);
+            return this._context.Inventories.Include(i => i.ProductStock).FirstOrDefault(i => i.ProductStock == p);
         }
     }
 }

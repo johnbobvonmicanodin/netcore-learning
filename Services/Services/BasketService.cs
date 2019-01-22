@@ -26,9 +26,9 @@ namespace Services.Services
             this._basketRepository.DeleteAllBasket(u);
         }
 
-        public void DeleteBasket(Basket b)
+        public bool DeleteBasket(Basket b)
         {
-            this._basketRepository.DeleteBasket(b);
+            return this._basketRepository.DeleteBasket(b);
         }
 
         public List<Basket> GetAllBasketUser(User u)

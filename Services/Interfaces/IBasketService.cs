@@ -11,7 +11,7 @@ namespace Repositories.Interfaces
 
         List<Basket> GetAllBasketUser(User u);
 
-        void DeleteBasket(Basket b);
+        bool DeleteBasket(Basket b);
 
         void DeleteAllBasket(User u);
     }

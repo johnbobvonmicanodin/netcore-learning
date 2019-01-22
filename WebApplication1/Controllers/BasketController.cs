@@ -26,7 +26,7 @@ namespace WebApplication1.Controllers
 
         [HttpPost("getforuser")]
         public List<Basket> GetForUser(User u)
-        {
+        {       
             return this._basketService.GetAllBasketUser(u);
         }
 
@@ -37,9 +37,9 @@ namespace WebApplication1.Controllers
         }
 
         [HttpPost("delete")]
-        public void DeleteBasket(Basket b)
+        public bool DeleteBasket(Basket b)
         {
-            this._basketService.DeleteBasket(b);
+            return this._basketService.DeleteBasket(b);
         }
 
         [HttpPost("deleteall")]
