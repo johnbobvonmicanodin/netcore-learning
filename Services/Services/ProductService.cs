@@ -35,5 +35,25 @@ namespace Services.Services
         {
             return this._productRepository.GetAllProduct();
         }
+
+        public List<Product> GetAllProductUp()
+        {
+            return this._productRepository.GetAllProductUp();
+        }
+
+        public List<Product> GetAllProductForward()
+        {
+            return this._productRepository.GetAllProductForward();
+        }
+
+        public Product SetProductUp(Product p)
+        {
+            return this._productRepository.SetProductUp(p);
+        }
+
+        public Product SetProductForward(Product p)
+        {
+            return this._productRepository.SetProductForward(p);
+        }
     }
 }

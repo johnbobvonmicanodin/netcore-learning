@@ -14,6 +14,8 @@ namespace ClassLibrary.Models
         public double TVA { get; set; }
         public double PriceHT { get; set; }
         public string Stock_place { get; set; }
+        public int Up { get; set; }
+        public int Forward { get; set; }
 
         public Product()
         {

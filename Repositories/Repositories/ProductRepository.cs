@@ -50,5 +50,33 @@ namespace Repositories.Repositories
         {
             return this._context.Products.ToList();
         }
+
+        public List<Product> GetAllProductUp()
+        {
+            return this._context.Products.Where(p => p.Up == 1).ToList();
+        }
+
+        public List<Product> GetAllProductForward()
+        {
+            return this._context.Products.Where(p => p.Up == 1 && p.Forward == 1).ToList();
+        }
+
+        public Product SetProductUp(Product p)
+        {
+            this._context.Attach(p);
+            this._context.Entry(p).Property(x => x.Up).IsModified = true;
+            this._context.SaveChanges();
+
+            return p;
+        }
+
+        public Product SetProductForward(Product p)
+        {
+            this._context.Attach(p);
+            this._context.Entry(p).Property(x => x.Forward).IsModified = true;
+            this._context.SaveChanges();
+
+            return p;
+        }
     }
 }

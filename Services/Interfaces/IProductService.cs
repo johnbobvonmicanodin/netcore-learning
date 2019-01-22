@@ -14,5 +14,13 @@ namespace Repositories.Interfaces
         void DeleteProduct(Product p);
 
         Product UpdateProduct(Product p);
+
+        List<Product> GetAllProductUp();
+
+        List<Product> GetAllProductForward();
+
+        Product SetProductUp(Product p);
+
+        Product SetProductForward(Product p);
     }
 }

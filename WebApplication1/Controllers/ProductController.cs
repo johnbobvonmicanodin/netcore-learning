@@ -49,6 +49,30 @@ namespace WebApplication1.Controllers
             return this._productService.UpdateProduct(p);
         }
 
+        [HttpGet("getallup")]
+        public List<Product> GetAllProductUp()
+        {
+            return this._productService.GetAllProductUp();
+        }
+
+        [HttpGet("getallforward")]
+        public List<Product> GetAllProductForward()
+        {
+            return this._productService.GetAllProductForward();
+        }
+
+        [HttpPost("setup")]
+        public Product SetProductUp(Product p)
+        {
+            return this._productService.SetProductUp(p);
+        }
+
+        [HttpPost("setforward")]
+        public Product SetProductForward(Product p)
+        {
+            return this._productService.SetProductForward(p);
+        }
+
         [HttpPost("addimage")]
         public Product AddImage()
         {
