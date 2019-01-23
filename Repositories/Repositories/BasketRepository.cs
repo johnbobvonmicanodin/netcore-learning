@@ -24,10 +24,12 @@ namespace Repositories.Repositories
             return b;
         }
 
-        public void DeleteAllBasket(User u)
+        public bool DeleteAllBasket(User u)
         {
             this._context.Baskets.RemoveRange(this._context.Baskets.Where(b => b.BasketOwner == u));
             this._context.SaveChanges();
+
+            return true;
         }
 
         public bool DeleteBasket(Basket b)

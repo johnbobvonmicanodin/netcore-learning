@@ -40,5 +40,17 @@ namespace WebApplication1.Controllers
         {
             return this._movementService.GetAllMovementOneProductAfterInventory(p);
         }
+
+        [HttpGet("getallpurchase")]
+        public List<Movement> GetAllMovementPurchase()
+        {
+            return this._movementService.GetAllMovementPurchase();
+        }
+
+        [HttpPost("getallforuser")]
+        public List<Movement> GetAllMovementOneUser(User u)
+        {
+            return this._movementService.GetAllMovementOneUser(u);
+        }
     }
 }

@@ -31,6 +31,16 @@ namespace Services.Services
             return this._movementRepository.GetAllMovementOneProductAfterInventory(p);
         }
 
+        public List<Movement> GetAllMovementOneUser(User u)
+        {
+            return this._movementRepository.GetAllMovementOneUser(u);
+        }
+
+        public List<Movement> GetAllMovementPurchase()
+        {
+            return this._movementRepository.GetAllMovementPurchase();
+        }
+
         public void ResetAllMovement(Product p)
         {
             this._movementRepository.ResetAllMovement(p);

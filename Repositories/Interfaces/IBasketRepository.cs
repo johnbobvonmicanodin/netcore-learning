@@ -13,6 +13,6 @@ namespace Repositories.Interfaces
 
         Boolean DeleteBasket(Basket b);
 
-        void DeleteAllBasket(User u);
+        bool DeleteAllBasket(User u);
     }
 }

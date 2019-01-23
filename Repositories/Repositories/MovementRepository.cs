@@ -39,6 +39,16 @@ namespace Repositories.Repositories
             return this._context.Movements.Include(m => m.MovementOrigin).Include(m => m.ProductMoved).Where(m => m.ProductMoved == p && m.Date >= i.Date).ToList();
         }
 
+        public List<Movement> GetAllMovementOneUser(User u)
+        {
+            return this._context.Movements.Include(m => m.MovementOrigin).Include(m => m.ProductMoved).Where(m => m.MovementOrigin == u && m.Type_of_movement == "purchase").ToList();
+        }
+
+        public List<Movement> GetAllMovementPurchase()
+        {
+            return this._context.Movements.Include(m => m.MovementOrigin).Include(m => m.ProductMoved).Where(m => m.Type_of_movement == "purchase").ToList();
+        }
+
         public void ResetAllMovement(Product p)
         {
             this._context.Movements.RemoveRange(this._context.Movements.Where(m => m.ProductMoved == p));

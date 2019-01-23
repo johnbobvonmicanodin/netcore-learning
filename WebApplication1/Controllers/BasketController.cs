@@ -43,9 +43,9 @@ namespace WebApplication1.Controllers
         }
 
         [HttpPost("deleteall")]
-        public void DeleteAllBasket(User u)
+        public bool DeleteAllBasket(User u)
         {
-            this._basketService.DeleteAllBasket(u);
+            return this._basketService.DeleteAllBasket(u);
         }
 
     }
