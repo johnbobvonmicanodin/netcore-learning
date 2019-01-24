@@ -18,7 +18,14 @@ namespace Services.Services
 
         public Movement AddMovement(Movement m)
         {
-            return this._movementRepository.AddMovement(m);
+            if(m.MovementOrigin == null || m.ProductMoved == null)
+            {
+                return null;
+            }
+            else
+            {
+                return this._movementRepository.AddMovement(m);
+            }     
         }
 
         public List<Movement> GetAllMovementofOneProduct(Product p)

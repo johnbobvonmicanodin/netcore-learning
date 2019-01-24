@@ -21,5 +21,29 @@ namespace Services.Tests.Services
             _basketRepository = new BasketRepository(null);
             _basketService = new BasketService(_basketRepository);
         }
+
+        [TestMethod]
+        public void AddBasketWithoutProduct()
+        {
+            var mock = new Mock<IBasketRepository>();
+            var newBasket = new Basket() { Product_choose = null };
+
+            var service = new BasketService(mock.Object);
+            var repBasket = service.AddItem(newBasket);
+
+            Assert.IsTrue(repBasket == null);
+        }
+
+        [TestMethod]
+        public void AddBasketWithoutUser()
+        {
+            var mock = new Mock<IBasketRepository>();
+            var newBasket = new Basket() { BasketOwner = null };
+
+            var service = new BasketService(mock.Object);
+            var repBasket = service.AddItem(newBasket);
+
+            Assert.IsTrue(repBasket == null);
+        }
     }
 }

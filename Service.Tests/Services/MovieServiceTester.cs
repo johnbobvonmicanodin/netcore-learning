@@ -23,7 +23,7 @@ namespace Services.Tests.Services
             _movieService = new MovieService(_movieRepository);
         }
 
-        [TestMethod]
+        /*[TestMethod]
         public void GivenNoMovieWithSameTitle_WhenAddingNewMovie_ThenMovie()
         {
             var mock = new Mock<IMovieRepository>();
@@ -38,7 +38,7 @@ namespace Services.Tests.Services
             var dbMovie = service.AddMovie(movie);
 
             Assert.IsTrue(dbMovie != null);
-        }
+        }*/
 
         [TestMethod]
         public void GivenMovieWithSameTitle_WhenAddingNewMovie_ThenMovie()

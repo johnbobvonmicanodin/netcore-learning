@@ -18,6 +18,16 @@ namespace Services.Services
 
         public Product AddProduct(Product p)
         {
+            if( p.PriceHT < 1)
+            {
+                p.PriceHT = 1;
+            }
+
+            if( p.TVA < 0)
+            {
+                p.TVA = 0;
+            }
+
             return this._productRepository.AddProduct(p);
         }
 
@@ -26,9 +36,9 @@ namespace Services.Services
             return this._productRepository.UpdateProduct(p);
         }
 
-        public void DeleteProduct(Product p)
+        public bool DeleteProduct(Product p)
         {
-            this._productRepository.DeleteProduct(p);
+            return this._productRepository.DeleteProduct(p);
         }
 
         public List<Product> GetAllProduct()

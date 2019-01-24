@@ -21,5 +21,29 @@ namespace Services.Tests.Services
             _productRepository = new ProductRepository(null);
             _productService = new ProductService(_productRepository);
         }
+
+        [TestMethod]
+        public void AddProductWithNegativePrice()
+        {
+            var mock = new Mock<IProductRepository>();
+            var newProd = new Product() { PriceHT = -1 };
+
+            var service = new ProductService(mock.Object);
+            var repProd = service.AddProduct(newProd);
+
+            Assert.IsTrue(repProd.PriceHT == 1);
+        }
+
+        [TestMethod]
+        public void AddProductWithNegativeTaxes()
+        {
+            var mock = new Mock<IProductRepository>();
+            var newProd = new Product() { TVA = -1 };
+
+            var service = new ProductService(mock.Object);
+            var repProd = service.AddProduct(newProd);
+
+            Assert.IsTrue(repProd.TVA == 0);
+        }
     }
 }

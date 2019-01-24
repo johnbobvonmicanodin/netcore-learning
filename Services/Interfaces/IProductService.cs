@@ -11,7 +11,7 @@ namespace Repositories.Interfaces
 
         List<Product> GetAllProduct();
 
-        void DeleteProduct(Product p);
+        bool DeleteProduct(Product p);
 
         Product UpdateProduct(Product p);
 

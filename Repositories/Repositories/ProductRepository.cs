@@ -36,7 +36,11 @@ namespace Repositories.Repositories
         {
             if (this._context.Products.FirstOrDefault(i => i.Id == p.Id) != null)
             {
-                this._context.Users.Remove(this._context.Users.FirstOrDefault(i => i.Id == p.Id));
+                this._context.Baskets.RemoveRange(this._context.Baskets.Where(b => b.Product_choose == p).ToList());
+                this._context.Inventories.RemoveRange(this._context.Inventories.Where(i => i.ProductStock == p).ToList());
+                this._context.Movements.RemoveRange(this._context.Movements.Where(m => m.ProductMoved == p).ToList());
+
+                this._context.Products.Remove(this._context.Products.FirstOrDefault(i => i.Id == p.Id));
                 this._context.SaveChanges();
                 return true;
             }

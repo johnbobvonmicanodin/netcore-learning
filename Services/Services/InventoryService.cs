@@ -18,7 +18,20 @@ namespace Services.Services
 
         public Inventory AddInventory(Inventory i)
         {
-            return this._inventoryRepository.AddInventory(i);
+            if( i.ProductStock == null)
+            {
+                return null;
+
+            }
+            else
+            {
+                if(i.Stock < 0)
+                {
+                    i.Stock = 0;
+                }
+
+                return this._inventoryRepository.AddInventory(i);
+            }  
         }
 
         public void DeleteInventory(Inventory i)

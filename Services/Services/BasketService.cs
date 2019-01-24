@@ -18,7 +18,14 @@ namespace Services.Services
 
         public Basket AddItem(Basket b)
         {
-            return this._basketRepository.AddItem(b);
+            if(b.Product_choose == null || b.BasketOwner == null)
+            {
+                return null;
+            }
+            else
+            {
+                return this._basketRepository.AddItem(b);
+            }    
         }
 
         public bool DeleteAllBasket(User u)

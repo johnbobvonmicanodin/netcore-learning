@@ -43,7 +43,7 @@ namespace WebApplication1
 
             var token = new JwtSecurityToken(_config["Jwt:Issuer"], _config["Jwt:Issuer"],
             claims,
-            expires: DateTime.Now.AddMinutes(30),
+            expires: DateTime.Now.AddMinutes(60),
             signingCredentials: creds);
 
             return new JwtSecurityTokenHandler().WriteToken(token);

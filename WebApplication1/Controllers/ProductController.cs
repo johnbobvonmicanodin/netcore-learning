@@ -100,10 +100,10 @@ namespace WebApplication1.Controllers
 
         }
 
-        [HttpDelete("delete")]
-        public void DeleteProduct(Product p)
+        [HttpPost("delete")]
+        public bool DeleteProduct(Product p)
         {
-            this._productService.DeleteProduct(p);
+            return this._productService.DeleteProduct(p);
         }
     }
 }

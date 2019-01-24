@@ -12,6 +12,7 @@ namespace ClassLibrary.Models
         public string Name { get; set; }
         public string FirstName { get; set; }
         public int IsSeller { get; set; }
+        public string Token { get; set; }
 
         public User()
         {
