@@ -28,6 +28,9 @@ namespace Services.Tests.Services
             var mock = new Mock<IUserRepository>();
             var newUser = new User() { Email = "test@test.fr", Name = "Mathieu", FirstName = "Mathieu" };
 
+            mock.Setup(p => p.AddUser(It.IsAny<User>()))
+             .Returns(newUser);
+
             var service = new UserService(mock.Object);
             var repUser = service.AddUser(newUser);
 

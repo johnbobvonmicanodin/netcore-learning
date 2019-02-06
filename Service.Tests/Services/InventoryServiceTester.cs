@@ -28,6 +28,9 @@ namespace Services.Tests.Services
             var mock = new Mock<IInventoryRepository>();
             var newInv = new Inventory() { ProductStock = null };
 
+            mock.Setup(p => p.AddInventory(It.IsAny<Inventory>()))
+             .Returns(newInv);
+
             var service = new InventoryService(mock.Object);
             var repInv = service.AddInventory(newInv);
 
@@ -36,9 +39,17 @@ namespace Services.Tests.Services
 
         [TestMethod]
         public void AddInventoryWithNegativeStock()
-        {
+        {    
             var mock = new Mock<IInventoryRepository>();
-            var newInv = new Inventory() { Stock = -1, ProductStock = { Id = new Guid("08d67f25-7d67-8d8c-3d56-1d869bf16282")}, Date = new DateTime() };
+            var mockprod = new Mock<IProductRepository>();
+            var newProd = new Product() { Id = new Guid("08d67f25-7d67-8d8c-3d56-1d869bf16282"), TVA = 10, PriceHT = 50};
+            var newInv = new Inventory() { Stock = -1, ProductStock = newProd, Date = new DateTime() };
+
+            mockprod.Setup(p => p.AddProduct(It.IsAny<Product>()))
+             .Returns(newProd);
+
+            mock.Setup(p => p.AddInventory(It.IsAny<Inventory>()))
+              .Returns(newInv);
 
             var service = new InventoryService(mock.Object);
             var repInv = service.AddInventory(newInv);

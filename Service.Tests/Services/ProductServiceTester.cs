@@ -26,7 +26,10 @@ namespace Services.Tests.Services
         public void AddProductWithNegativePrice()
         {
             var mock = new Mock<IProductRepository>();
-            var newProd = new Product() { PriceHT = -1 };
+            var newProd = new Product() { PriceHT = -1, TVA = 10 };
+
+            mock.Setup(p => p.AddProduct(It.IsAny<Product>()))
+              .Returns(newProd);
 
             var service = new ProductService(mock.Object);
             var repProd = service.AddProduct(newProd);
@@ -38,7 +41,10 @@ namespace Services.Tests.Services
         public void AddProductWithNegativeTaxes()
         {
             var mock = new Mock<IProductRepository>();
-            var newProd = new Product() { TVA = -1 };
+            var newProd = new Product() { TVA = -1, PriceHT = 10 };
+
+            mock.Setup(p => p.AddProduct(It.IsAny<Product>()))
+                .Returns(newProd);
 
             var service = new ProductService(mock.Object);
             var repProd = service.AddProduct(newProd);

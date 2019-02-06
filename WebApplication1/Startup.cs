@@ -119,6 +119,8 @@ namespace WebApplication1
 
                     };
 
+                    Console.WriteLine(options);
+
                 });
         }
     }

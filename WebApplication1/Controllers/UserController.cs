@@ -6,6 +6,7 @@ using ClassLibrary.Models;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Configuration;
 using Repositories.Interfaces;
 using Repositories.Repositories;
 using Services.Interfaces;
@@ -17,16 +18,18 @@ namespace WebApplication1.Controllers
     public class UsersController : ControllerBase
     {
         private readonly IUserService _userService;
-
+    
         public UsersController(IUserService userService)
         {
-            this._userService = userService;
+            this._userService = userService;     
         }
 
         [HttpPost("login")]
         public User LogUser(Login g)
-        {
-            return _userService.GetUser(g.mail, g.password);
+        {      
+            User u = this._userService.GetUser(g.mail, g.password);
+            
+            return u;
         }
 
         [HttpPost("add")]
