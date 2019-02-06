@@ -30,17 +30,38 @@ namespace Services.Services
 
         public List<Movement> GetAllMovementofOneProduct(Product p)
         {
-            return this._movementRepository.GetAllMovementofOneProduct(p);
+            if (p.Id == null)
+            {
+                return null;
+            }
+            else
+            {
+                return this._movementRepository.GetAllMovementofOneProduct(p);
+            }
         }
 
         public List<Movement> GetAllMovementOneProductAfterInventory(Product p)
         {
-            return this._movementRepository.GetAllMovementOneProductAfterInventory(p);
+            if (p.Id == null)
+            {
+                return null;
+            }
+            else
+            {         
+                return this._movementRepository.GetAllMovementOneProductAfterInventory(p);
+            }
         }
 
         public List<Movement> GetAllMovementOneUser(User u)
         {
-            return this._movementRepository.GetAllMovementOneUser(u);
+            if(u.Id == null)
+            {
+                return null;
+            }
+            else
+            {
+                return this._movementRepository.GetAllMovementOneUser(u);
+            }      
         }
 
         public List<Movement> GetAllMovementPurchase()

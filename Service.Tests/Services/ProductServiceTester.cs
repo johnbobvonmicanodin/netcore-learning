@@ -51,5 +51,17 @@ namespace Services.Tests.Services
 
             Assert.IsTrue(repProd.TVA == 0);
         }
+
+        [TestMethod]
+        public void DeleteProductNotInBase()
+        {
+            var mock = new Mock<IProductRepository>();
+            var newProd = new Product() { TVA = -1, PriceHT = 10 };
+
+            var service = new ProductService(mock.Object);
+            var repProd = service.DeleteProduct(newProd);
+
+            Assert.IsTrue(repProd == false);
+        }
     }
 }

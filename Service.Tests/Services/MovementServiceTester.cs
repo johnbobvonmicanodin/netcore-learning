@@ -46,5 +46,46 @@ namespace Services.Tests.Services
 
             Assert.IsTrue(repMov == null);
         }
+
+
+        [TestMethod]
+        public void GetListWithProductUndefined()
+        {
+            var mock = new Mock<IMovementRepository>();
+
+            var newProd = new Product() { Name = "productwithoutname" };
+
+            var service = new MovementService(mock.Object);
+            var repMov = service.GetAllMovementofOneProduct(newProd);
+
+            Assert.IsTrue(repMov == null);
+        }
+
+
+        [TestMethod]
+        public void GetListAfterInventoryWithProductUndefined()
+        {
+            var mock = new Mock<IMovementRepository>();
+
+            var newProd = new Product() { Name = "productwithoutname" };
+
+            var service = new MovementService(mock.Object);
+            var repMov = service.GetAllMovementOneProductAfterInventory(newProd);
+
+            Assert.IsTrue(repMov == null);
+        }
+
+        [TestMethod]
+        public void MovementofOneUserUndefined()
+        {
+            var mock = new Mock<IMovementRepository>();
+
+            var user = new User() { Name = "Gilbert", Email = "leplusgranddesheros@outlook.com" };
+
+            var service = new MovementService(mock.Object);
+            var repMov = service.GetAllMovementOneUser(user);
+
+            Assert.IsTrue(repMov == null);
+        }
     }
 }

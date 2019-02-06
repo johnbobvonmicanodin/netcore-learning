@@ -57,5 +57,17 @@ namespace Services.Tests.Services
             Assert.IsTrue(repInv.Stock == 0);
         }
 
+        [TestMethod]
+        public void GetInventoryFromProductNotInDatabase()
+        {
+            var mock = new Mock<IInventoryRepository>();      
+            var newProd = new Product() { TVA = 10, PriceHT = 50 };
+        
+            var service = new InventoryService(mock.Object);
+            var repInv = service.GetLastInventory(newProd);
+
+            Assert.IsTrue(repInv == null);
+        }
+
     }
 }

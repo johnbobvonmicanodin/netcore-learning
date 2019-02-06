@@ -45,5 +45,41 @@ namespace Services.Tests.Services
 
             Assert.IsTrue(repBasket == null);
         }
+
+        [TestMethod]
+        public void DeleteBasketNotInDatabase()
+        {
+            var mock = new Mock<IBasketRepository>();
+            var newBasket = new Basket() { BasketOwner = null };
+
+            var service = new BasketService(mock.Object);
+            var repBasket = service.DeleteBasket(newBasket);
+
+            Assert.IsTrue(repBasket == false);
+        }
+
+        [TestMethod]
+        public void DeleteBasketUserNotInDatabase()
+        {
+            var mock = new Mock<IBasketRepository>();
+            var user = new User() { Name = "Test" };
+
+            var service = new BasketService(mock.Object);
+            var repBasket = service.DeleteAllBasket(user);
+
+            Assert.IsTrue(repBasket == false);
+        }
+
+        [TestMethod]
+        public void GetAllBasketFromUserNotInDatabase()
+        {
+            var mock = new Mock<IBasketRepository>();
+            var user = new User() { Name = "Test" };
+
+            var service = new BasketService(mock.Object);
+            var repBasket = service.GetAllBasketUser(user);
+
+            Assert.IsTrue(repBasket == null);
+        }
     }
 }
